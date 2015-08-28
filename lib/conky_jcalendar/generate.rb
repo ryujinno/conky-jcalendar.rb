@@ -85,7 +85,10 @@ module ConkyJCalendar
         gcal = open(uri) { |io| JSON.parse(io.read) }
 
         gcal['feed']['entry'].each do |entry|
-          match = entry['summary']['$t'].match(/\d+\/\d+\/\d+/)
+          if @debug
+            pp entry['content']['$t']
+          end
+          match = entry['content']['$t'].match(/\d+\/\d+\/\d+/)
           holidays << Date.parse(match[0])
         end
       rescue
@@ -205,6 +208,9 @@ class Date
 
   def to_json
     # 2015-08-01T00:37:44.957Z
-    to_time.strftime('%Y-%m-%dT%T.%LZ')
+    # Google calendar Japanese holiday starts/ends in UTC
+    time = to_time
+    time += time.utc_offset
+    time.strftime('%Y-%m-%dT%T.%LZ')
   end
 end
