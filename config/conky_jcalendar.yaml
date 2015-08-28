@@ -1,0 +1,16 @@
+---
+option:
+  holiday_id:     'japanese__ja@holiday.calendar.google.com'
+  first_weekday:  'Sunday'
+
+style:
+  voffset:        4
+  font_header:    'Times:size=6'
+  font_day:       'Courier:size=7'
+  font_today:     'Courier:style=Bold:size=7'
+  color_header:   'orange'
+  color_today:    'orange'
+  color_saturday: 'dodgerblue'
+  color_sunday:   'violetred'
+  color_holiday:  'violetred'
+
