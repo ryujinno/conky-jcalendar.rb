@@ -31,6 +31,14 @@ Or install it yourself as:
       -f, [--first-weekday=FIRST_WEEKDAY]  # First day of week for calendar
       -t, [--today=TODAY]                  # Today of calendar for debugging
 
+## Conky integration
+
+Add following line to `${HOME}/.conkyrc`.
+
+```
+${execpi 600 ${HOME}/bin/conky_jcalendar conky}
+```
+
 ## Configuration
 
 You can edit `${HOME}/.config/conky_jcalendar.yaml` as a user config file.
@@ -56,14 +64,6 @@ style:
 ```
 
 Style syntax is for conky. See `man conky` for detail.
-
-## Conky integration
-
-Add following line to `${HOME}/.conkyrc`.
-
-```
-${execpi 600 ${HOME}/bin/conky_jcalendar conky}
-```
 
 ## License
 
