@@ -57,6 +57,14 @@ style:
 
 Style syntax is for conky. See `man conky` for detail.
 
+## Conky integration
+
+Add following line to `${HOME}/.conkyrc`.
+
+```
+${execpi 600 ${HOME}/bin/conky_jcalendar conky}
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
