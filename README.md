@@ -4,7 +4,7 @@ Japanese calendar for conky. This highlights Japanese holidays in conky.
 
 ## Installation
 
-Add this line to your Gemfile:
+Add the following line to your Gemfile:
 
 ```ruby
 gem 'conky_jcalendar',  :github => 'ryujinno/conky_jcalendar.rb'
@@ -12,28 +12,27 @@ gem 'conky_jcalendar',  :github => 'ryujinno/conky_jcalendar.rb'
 
 And then execute:
 
-    $ bundle install --binstubs
-
-Or install it yourself as:
-
-    $ gem install specific_install
-    $ gem specific_install https://github.com/ryujinno/conky_jcalendar.rb.git 
+```
+$ bundle install --binstubs
+```
 
 ## Usage
 
-    Commands:
-      conky_jcalendar conky           # Putout calendar for conky
-      conky_jcalendar debug           # Putout calendar for debugging
-      conky_jcalendar help [COMMAND]  # Describe available commands or one spec...
+```
+Commands:
+  conky_jcalendar conky           # Putout calendar for conky
+  conky_jcalendar debug           # Putout calendar for debugging
+  conky_jcalendar help [COMMAND]  # Describe available commands or one spec...
 
-    Options:
-      -h, [--holiday-id=HOLIDAY_ID]        # Holiday ID of Google Calendar
-      -f, [--first-weekday=FIRST_WEEKDAY]  # First day of week for calendar
-      -t, [--today=TODAY]                  # Today of calendar for debugging
+Options:
+  -h, [--holiday-id=HOLIDAY_ID]        # Holiday ID of Google Calendar
+  -f, [--first-weekday=FIRST_WEEKDAY]  # First day of week for calendar
+  -t, [--today=TODAY]                  # Today of calendar for debugging
+```
 
 ## Conky integration
 
-Add following line to `${HOME}/.conkyrc`.
+Add the following line to `${HOME}/.conkyrc`.
 
 ```
 ${execpi 600 ${HOME}/bin/conky_jcalendar conky}
@@ -63,7 +62,15 @@ style:
   color_holiday:  'violetred'
 ```
 
-Style syntax is for conky. See `man conky` for detail.
+Syntax of style hash value is for conky. See `man conky` for detail.
+
+## Contributing
+
+1. Fork it ( https://github.com/ryujinno/conky_jcalendar.rb/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 ## License
 
