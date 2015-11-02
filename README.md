@@ -4,7 +4,7 @@ Japanese calendar for conky. This highlights Japanese holidays in conky.
 
 ## Installation
 
-Add the following line to your Gemfile:
+Add the following line to your `Gemfile`
 
 ```ruby
 gem 'conky_jcalendar',  :github => 'ryujinno/conky_jcalendar.rb'
