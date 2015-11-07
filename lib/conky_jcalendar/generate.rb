@@ -11,6 +11,7 @@ module ConkyJCalendar
 
   CONFIG_FILE_DEFAULT = '../../../config/conky_jcalendar.yaml'
   CONFIG_FILE_USER    = "#{ENV['HOME']}/.config/conky_jcalendar.yaml"
+  CONFIG_FILE_COMPAT  = "#{ENV['HOME']}/.config/conky_jcalendar.yml"
 
   class Generate
 
@@ -34,6 +35,9 @@ module ConkyJCalendar
       @option.merge!(user['option']) if user['option']
       @style.merge!(user['style'])   if user['style']
     rescue Errno::ENOENT
+      unless user_file == CONFIG_FILE_COMPAT
+        set_config_user(CONFIG_FILE_COMPAT)
+      end
     end
 
     def set_option(options)
