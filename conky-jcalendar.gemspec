@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'conky_jcalendar/version'
+require 'conky-jcalendar/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'conky_jcalendar'
+  spec.name          = 'conky-jcalendar'
   spec.version       = ConkyJCalendar::VERSION
   spec.authors       = ["Ryu Jinno"]
   spec.email         = ["ryujinno@gmail.com"]

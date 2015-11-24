@@ -7,7 +7,7 @@ Japanese calendar for conky. This highlights Japanese holidays in conky.
 Add the following line to `${HOME}/Gemfile`:
 
 ```ruby
-gem 'conky_jcalendar',  :github => 'ryujinno/conky_jcalendar.rb'
+gem 'conky-jcalendar',  :github => 'ryujinno/conky-jcalendar.rb'
 ```
 
 And then execute:
@@ -16,15 +16,15 @@ And then execute:
 $ bundle install --binstubs
 ```
 
-`conky_jcalendar` command is installed to `${HOME}/bin`.
+`conky-jcalendar` command is installed to `${HOME}/bin`.
 
 ## Usage
 
 ```
 Commands:
-  conky_jcalendar conky           # Putout calendar for conky
-  conky_jcalendar debug           # Putout calendar for debugging
-  conky_jcalendar help [COMMAND]  # Describe available commands or one spec...
+  conky-jcalendar conky           # Putout calendar for conky
+  conky-jcalendar debug           # Putout calendar for debugging
+  conky-jcalendar help [COMMAND]  # Describe available commands or one spec...
 
 Options:
   -h, [--holiday-id=HOLIDAY_ID]        # Holiday ID of Google Calendar
@@ -37,12 +37,12 @@ Options:
 Add the following line to `${HOME}/.conkyrc`:
 
 ```
-${execpi 600 ${HOME}/bin/conky_jcalendar conky}
+${execpi 600 ${HOME}/bin/conky-jcalendar conky}
 ```
 
 ## Configuration
 
-You can edit `${HOME}/.config/conky_jcalendar.yaml` as a user config file.
+You can edit `${HOME}/.config/conky-jcalendar.yaml` as a user config file.
 
 Default config is below:
 
@@ -68,7 +68,7 @@ Syntax of style hash value is for conky. See `man conky` for detail.
 
 ## Contributing
 
-1. Fork it ( https://github.com/ryujinno/conky_jcalendar.rb/fork )
+1. Fork it ( https://github.com/ryujinno/conky-jcalendar.rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

@@ -9,9 +9,9 @@ module ConkyJCalendar
   URL_GOOGLE_CALENDAR = 'http://www.google.com/calendar/feeds/%s/public/basic?alt=json&start-min=%s&start-max=%s&max-results=%s'
   MAX_SCHEDULES = 256
 
-  CONFIG_FILE_DEFAULT = '../../../config/conky_jcalendar.yaml'
-  CONFIG_FILE_USER    = "#{ENV['HOME']}/.config/conky_jcalendar.yaml"
-  CONFIG_FILE_COMPAT  = "#{ENV['HOME']}/.config/conky_jcalendar.yml"
+  CONFIG_FILE_DEFAULT = '../../../config/conky-jcalendar.yaml'
+  CONFIG_FILE_USER    = "#{ENV['HOME']}/.config/conky-jcalendar.yaml"
+  CONFIG_FILE_COMPAT  = "#{ENV['HOME']}/.config/conky-jcalendar.yml"
 
   class Generate
 
@@ -108,7 +108,7 @@ module ConkyJCalendar
       # Header
       month = "#{@today.year} #{Date::MONTHNAMES[@today.month]}"
       cal = decorate_header(month)
-      cal += "\n" 
+      cal += "\n"
 
       # Previous month
       #   Returns a positive value
