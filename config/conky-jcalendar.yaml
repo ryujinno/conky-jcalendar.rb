@@ -1,8 +1,11 @@
 ---
-option:
-  holiday_id:     'japanese__ja@holiday.calendar.google.com'
-  first_weekday:  'Sunday'
+calendar:
+  holiday_uri:   'https://calendar.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics'
+  first_weekday: 'Sunday'
 
+event:
+  calendar_uris:
+    - 'https://calendar.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics'
 style:
   voffset:        4
   font_header:    'Times:size=6'

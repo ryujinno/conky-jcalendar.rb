@@ -1,3 +1,5 @@
 require 'conky-jcalendar/version'
-require 'conky-jcalendar/generate'
+require 'conky-jcalendar/main'
+require 'conky-jcalendar/calendar'
+require 'conky-jcalendar/event'
 require 'conky-jcalendar/cli'
