@@ -1,4 +1,6 @@
 require 'yaml'
+require 'tempfile'
+require 'open-uri'
 
 module ConkyJCalendar
 
@@ -30,24 +32,57 @@ module ConkyJCalendar
       end
     end
 
+    def get_ics
+      uri_ics = {}
+
+      uris  = @config['calendar']['holiday_uris']
+      uris += @config['event']['calendar_uris']
+
+      uris.each do |uri|
+        temp_prefix = File.basename(uri)
+        ics_io = Tempfile.new(temp_prefix)
+
+        open(uri) { |io| ics_io.write(io.read) }
+
+        uri_ics[uri] = ics_io
+      end
+
+      uri_ics
+    end
+
+    def clean_ics(uri_ics)
+      uri_ics.each do |uri, ics_io|
+        ics_io.close
+        ics_io.unlink
+      end
+    end
+
     def all
-      calendar
-      event
+      uri_ics = get_ics
+      Calendar.new(@options, @config, uri_ics).generate
+      Event.new(@options, @config, uri_ics).show
+      clean_ics(uri_ics)
     end
 
-    def calendar(debug = false)
-      Calendar.new(@options, @config, debug).generate
+    def calendar
+      uri_ics = get_ics
+      Calendar.new(@options, @config, uri_ics).generate
+      clean_ics(uri_ics)
     end
 
-    def event(debug = false)
-      Event.new(@options, @config, debug).show
+    def event
+      uri_ics = get_ics
+      Event.new(@options, @config, uri_ics).show
+      clean_ics(uri_ics)
     end
 
     def debug
       pp @options
       pp @config
-      calendar(true)
-      event(true)
+      uri_ics = get_ics
+      Calendar.new(@options, @config, uri_ics, true).generate
+      Event.new(@options, @config, uri_ics, true).show
+      clean_ics(uri_ics)
     end
 
   end

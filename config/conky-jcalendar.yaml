@@ -1,11 +1,12 @@
 ---
 calendar:
-  holiday_uri:   'https://calendar.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics'
+  holiday_uris:
+    - 'https://calendar.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics'
   first_weekday: 'Sunday'
 
 event:
-  calendar_uris:
-    - 'https://calendar.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics'
+  calendar_uris: []
+
 style:
   voffset:        4
   font_header:    'Times:size=6'

@@ -1,15 +1,16 @@
 require 'date'
-require 'open-uri'
 require 'ri_cal'
 require 'pp'
 
 module ConkyJCalendar
   class Event
+    EVENT_DAYS  = 7
     TIME_FORMAT = '%H:%M'
 
-    def initialize(options, config, debug)
-      @config = config
-      @debug  = debug
+    def initialize(options, config, uri_ics, debug = false)
+      @config  = config
+      @uri_ics = uri_ics
+      @debug   = debug
 
       if options[:today].nil?
         @today = Date.today
@@ -21,17 +22,21 @@ module ConkyJCalendar
     end
 
     def show
-      @config['event']['calendar_uris'].each do |uri|
-        set_weekly_events(uri)
+      @uri_ics.each do |uri, ics_io|
+        if @debug
+          pp uri
+        end
+        set_weekly_events(ics_io)
       end
 
       putout_events
     end
 
-    def set_weekly_events(uri)
-      cals = open(uri) { |io| ::RiCal.parse(io) }
+    def set_weekly_events(ics_io)
+      ics_io.rewind
+      cals = RiCal.parse(ics_io)
 
-      this_week  = @today.upto(@today + 7)
+      this_week = @today.upto(@today + EVENT_DAYS - 1)
 
       this_week.each do |date|
         @events[date] ||= []

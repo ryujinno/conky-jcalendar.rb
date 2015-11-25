@@ -1,5 +1,4 @@
 require 'date'
-require 'open-uri'
 require 'ri_cal'
 require 'pp'
 
@@ -7,9 +6,10 @@ module ConkyJCalendar
 
   class Calendar
 
-    def initialize(options, config, debug)
-      @config = config
-      @debug  = debug
+    def initialize(options, config, uri_ics, debug = false)
+      @config  = config
+      @uri_ics = uri_ics
+      @debug   = debug
       set_monthly_info(options[:today])
     end
 
@@ -29,22 +29,23 @@ module ConkyJCalendar
     end
 
     def generate
-      holidays = get_monthly_holiday
+      holidays = []
+
+      @config['calendar']['holiday_uris'].each do |uri|
+        if @debug
+          pp uri
+        end
+        ics_io = @uri_ics[uri]
+        holidays += get_monthly_holiday(ics_io)
+      end
       compose_calendar(holidays)
     end
 
-    def get_monthly_holiday
+    def get_monthly_holiday(ics_io)
       holidays = []
 
-      return holidays unless @config['calendar']['holiday_uri']
-
-      uri = @config['calendar']['holiday_uri']
-
-      begin
-        cals = open(uri) { |io| RiCal.parse(io) }
-      rescue
-        return holidays
-      end
+      ics_io.rewind
+      cals = RiCal.parse(ics_io)
 
       cals.each do |calendar|
         calendar.events.each do |e|
