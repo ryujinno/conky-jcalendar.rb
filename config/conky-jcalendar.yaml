@@ -5,7 +5,7 @@ calendar:
   first_weekday: 'Sunday'
 
 event:
-  calendar_uris: []
+  schedule_uris: []
 
 style:
   voffset:        4

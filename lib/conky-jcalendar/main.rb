@@ -36,7 +36,7 @@ module ConkyJCalendar
       uri_ics = {}
 
       uris  = @config['calendar']['holiday_uris']
-      uris += @config['event']['calendar_uris']
+      uris += @config['event']['schedule_uris']
 
       uris.each do |uri|
         temp_prefix = File.basename(uri)
