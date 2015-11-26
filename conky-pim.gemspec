@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'conky-jcalendar/version'
+require 'conky-pim/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'conky-jcalendar'
-  spec.version       = ConkyJCalendar::VERSION
+  spec.name          = 'conky-pim'
+  spec.version       = ConkyPIM::VERSION
   spec.authors       = ["Ryu Jinno"]
   spec.email         = ["ryujinno@gmail.com"]
 
-  spec.summary       = %q{Japanese Conky calender}
-  spec.description   = %q{Japanese Conky calender with holiday}
+  spec.summary       = %q{Conky PIM}
+  spec.description   = %q{Calenadar and event for Conky}
   spec.homepage      = ''
   spec.license       = 'MIT'
 
@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'thor', '~> 0.19.1'
+  spec.add_dependency 'thor',   '~> 0.19.1'
   spec.add_dependency 'ri_cal', '~> 0.8.8'
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'rake', '~> 10.0'

@@ -2,9 +2,9 @@ require 'date'
 require 'ri_cal'
 require 'pp'
 
-require 'conky-jcalendar/decorate'
+require 'conky-pim/decorate'
 
-module ConkyJCalendar
+module ConkyPIM
   class Event
     include Decorate
 

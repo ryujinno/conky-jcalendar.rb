@@ -1,4 +1,4 @@
-module ConkyJCalendar
+module ConkyPIM
   module Decorate
 
     def decorate_header(str)

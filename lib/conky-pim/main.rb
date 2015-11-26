@@ -2,11 +2,14 @@ require 'yaml'
 require 'tempfile'
 require 'open-uri'
 
-module ConkyJCalendar
+require 'conky-pim/calendar'
+require 'conky-pim/event'
 
-  CONFIG_FILE_DEFAULT = '../../../config/conky-jcalendar.yaml'
-  CONFIG_FILE_USER    = "#{ENV['HOME']}/.config/conky-jcalendar.yaml"
-  CONFIG_FILE_COMPAT  = "#{ENV['HOME']}/.config/conky-jcalendar.yml"
+module ConkyPIM
+
+  CONFIG_FILE_DEFAULT = '../../../config/conky-pim.yaml'
+  CONFIG_FILE_USER    = "#{ENV['HOME']}/.config/conky-pim.yaml"
+  CONFIG_FILE_COMPAT  = "#{ENV['HOME']}/.config/conky-pim.yml"
 
   class Main
 

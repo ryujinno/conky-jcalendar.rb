@@ -1,13 +1,13 @@
-# ConkyJCalendar
+# ConkyPIM
 
-Japanese calendar for conky. This highlights Japanese holidays in conky.
+Conky personal infomation management. This shows calendar and event in Conky.
 
 ## Installation
 
 Add the following line to `${HOME}/Gemfile`:
 
 ```ruby
-gem 'conky-jcalendar',  :github => 'ryujinno/conky-jcalendar.rb'
+gem 'conky-pim',  :github => 'ryujinno/conky-pim.rb'
 ```
 
 And then execute:
@@ -16,20 +16,20 @@ And then execute:
 $ bundle install --binstubs
 ```
 
-`conky-jcalendar` command is installed to `${HOME}/bin`.
+`conky-pim` command is installed to `${HOME}/bin`.
 
 ## Usage
 
 ```
 Commands:
-  conky-jcalendar conky           # Putout calendar for conky
-  conky-jcalendar debug           # Putout calendar for debugging
-  conky-jcalendar help [COMMAND]  # Describe available commands or one spec...
+  conky-pim all             # Putout calendar and event
+  conky-pim calendar        # Putout calendar
+  conky-pim debug           # Putout calendar and event for debugging
+  conky-pim event           # Putout event
+  conky-pim help [COMMAND]  # Describe available commands or one specific command
 
 Options:
-  -h, [--holiday-id=HOLIDAY_ID]        # Holiday ID of Google Calendar
-  -f, [--first-weekday=FIRST_WEEKDAY]  # First day of week for calendar
-  -t, [--today=TODAY]                  # Today of calendar for debugging
+  -t, [--today=TODAY]  # Today of calendar for debugging
 ```
 
 ## Conky integration
@@ -37,20 +37,24 @@ Options:
 Add the following line to `${HOME}/.conkyrc`:
 
 ```
-${execpi 600 ${HOME}/bin/conky-jcalendar conky}
+${execpi 600 ${HOME}/bin/conky-pim conky}
 ```
 
 ## Configuration
 
-You can edit `${HOME}/.config/conky-jcalendar.yaml` as a user config file.
+You can edit `${HOME}/.config/conky-pim.yaml` as a user config file.
 
 Default config is below:
 
 ```yaml
 ---
-option:
-  holiday_id:     'japanese__ja@holiday.calendar.google.com'
-  first_weekday:  'Sunday'
+calendar:
+  holiday_uris:
+    - 'https://calendar.google.com/calendar/ical/ja.japanese%23holiday%40group.v.calendar.google.com/public/basic.ics'
+  first_weekday: 'Sunday'
+
+event:
+  schedule_uris: []
 
 style:
   voffset:        4
@@ -68,7 +72,7 @@ Syntax of style hash value is for conky. See `man conky` for detail.
 
 ## Contributing
 
-1. Fork it ( https://github.com/ryujinno/conky-jcalendar.rb/fork )
+1. Fork it ( https://github.com/ryujinno/conky-pim.rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
