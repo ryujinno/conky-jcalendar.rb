@@ -21,6 +21,8 @@ module ConkyPIM
       else
         @today = Date.parse(options[:today])
       end
+
+      @max_length = options[:length]
     end
 
     def show
@@ -109,7 +111,7 @@ module ConkyPIM
           end
 
           puts("  #{start_time} - #{finish_time}")
-          puts("    #{event[:summary]}")
+          puts("    #{event[:summary][0, @max_length]}")
         end
 
       end
