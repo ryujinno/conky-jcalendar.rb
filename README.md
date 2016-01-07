@@ -10,7 +10,7 @@ Add the following line to `${HOME}/Gemfile`:
 gem 'conky-pim',  :github => 'ryujinno/conky-pim.rb'
 ```
 
-And then execute:
+Install gems and commands as:
 
 ```
 $ bundle install --binstubs
@@ -69,14 +69,6 @@ style:
 ```
 
 Syntax of style hash value is for conky. See `man conky` for detail.
-
-## Contributing
-
-1. Fork it ( https://github.com/ryujinno/conky-pim.rb/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
 
 ## License
 
