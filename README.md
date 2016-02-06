@@ -80,5 +80,5 @@ Syntax of style hash value is for conky. See `man conky` for detail.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+ConkyPIM is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
