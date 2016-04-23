@@ -13,6 +13,7 @@ module ConkyPIM
       @config  = config
       @uri_ics = uri_ics
       @debug   = debug
+      @pad     = options[:pad]
       set_monthly_info(options[:today])
     end
 
@@ -76,7 +77,7 @@ module ConkyPIM
         if @debug
           cal += '       '
         else
-          cal += '   '
+          cal += ' ' * (@pad + 2)
         end
       end
 
@@ -89,7 +90,7 @@ module ConkyPIM
         if date.wday == last_weekend
           cal += "#{str_day}\n"
         else
-          cal += "#{str_day} "
+          cal += "#{str_day}" + ' ' * @pad
         end
 
         date += 1
