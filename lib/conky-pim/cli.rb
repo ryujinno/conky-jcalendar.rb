@@ -3,6 +3,7 @@ require 'thor'
 module ConkyPIM
   class CLI < Thor
     class_option :pad,    aliases: '-p', type: :numeric, default: 1,  desc: 'Padding of calendar'
+    class_option :margin, aliases: '-m', type: :numeric, default: 0,  desc: 'Left margin of calendar'
     class_option :length, aliases: '-l', type: :numeric, default: 16, desc: 'Max length of event summary'
     class_option :today,  aliases: '-t', type: :string,               desc: 'Today of calendar for debugging'
 

@@ -14,6 +14,7 @@ module ConkyPIM
       @uri_ics = uri_ics
       @debug   = debug
       @pad     = options[:pad]
+      @margin  = options[:margin]
       set_monthly_info(options[:today])
     end
 
@@ -69,6 +70,7 @@ module ConkyPIM
       month = "#{@today.year} #{@today.strftime('%B')}"
       cal = decorate_header(month)
       cal += "\n"
+      cal += ' ' * @margin
 
       # Previous month
       #   Returns a positive value
@@ -88,7 +90,7 @@ module ConkyPIM
 
         # Append date
         if date.wday == last_weekend
-          cal += "#{str_day}\n"
+          cal += "#{str_day}\n" + ' ' * @margin
         else
           cal += "#{str_day}" + ' ' * @pad
         end
