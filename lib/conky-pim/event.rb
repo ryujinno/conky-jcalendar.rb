@@ -8,7 +8,6 @@ module ConkyPIM
   class Event
     include Decorate
 
-    EVENT_DAYS  = 7
     TIME_FORMAT = '%H:%M'
 
     def initialize(options, config, uri_ics, debug = false)
@@ -47,7 +46,7 @@ module ConkyPIM
       ics_io.rewind
       cals = RiCal.parse(ics_io)
 
-      this_week = @today.upto(@today + EVENT_DAYS - 1)
+      this_week = @today.upto(@today + @config['event']['span'] - 1)
 
       this_week.each do |date|
         events[date] ||= []
@@ -113,7 +112,6 @@ module ConkyPIM
           puts("  #{start_time} - #{finish_time}")
           puts("    #{event[:summary][0, @max_length]}")
         end
-
       end
     end
 

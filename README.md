@@ -55,6 +55,7 @@ calendar:
 
 event:
   schedule_uris: []
+  span: 7
 
 style:
   voffset:        4
