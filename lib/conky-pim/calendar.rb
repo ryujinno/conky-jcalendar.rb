@@ -99,7 +99,6 @@ module ConkyPIM
       end
 
       cal.strip!
-      cal += decorate_footer()
 
       # Show calendar
       puts cal

@@ -5,7 +5,7 @@ module ConkyPIM
       if @debug
         str
       else
-        "${voffset #{@config['style']['voffset']}}${color #{@config['style']['color_header']}}${font #{@config['style']['font_header']}}#{str}${font}${color} ${stippled_hr}${font #{@config['style']['font_day']}}"
+        "${voffset #{@config['style']['voffset']}}${color #{@config['style']['color_header']}}${font #{@config['style']['font_header']}}#{str}${color} ${stippled_hr}${font #{@config['style']['font_day']}}"
       end
     end
 
@@ -29,7 +29,7 @@ module ConkyPIM
       if @debug
         "#{str_day}:Tod"
       else
-        "${font #{@config['style']['font_today']}}${color #{@config['style']['color_today']}}#{str_day}${color}${font}${font #{@config['style']['font_day']}}"
+        "${font #{@config['style']['font_today']}}${color #{@config['style']['color_today']}}#{str_day}${color}${font #{@config['style']['font_day']}}"
       end
     end
 
@@ -54,14 +54,6 @@ module ConkyPIM
         "#{str_day}:Sun"
       else
         "${color #{@config['style']['color_sunday']}}#{str_day}${color}"
-      end
-    end
-
-    def decorate_footer
-      if @debug
-        ''
-      else
-        '${font}'
       end
     end
 

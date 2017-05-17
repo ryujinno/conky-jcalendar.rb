@@ -52,20 +52,20 @@ module ConkyPIM
       this_week.each do |date|
         events[date] ||= []
         the_day  = date.to_time.localtime
-        tommorow = (date + 1).to_time.localtime
+        tomorrow = (date + 1).to_time.localtime
 
         cals.each do |calendar|
           calendar.events.each do |e|
-            e.occurrences(overlapping: [ the_day, tommorow ]).each do |occur|
+            e.occurrences(overlapping: [ the_day, tomorrow ]).each do |occur|
               start  = occur.dtstart.to_time.localtime
               finish = occur.dtend.to_time.localtime
               # FIXME: RiCal returns outbound occurrences
               # even if specified with overlapping parameter.
               # Maybe a bug.
               # This condition is workarround.
-              if (the_day <= start   && start    < tommorow ) ||
-                 (the_day <  finish  && finish   < tommorow ) ||
-                 (start   <  the_day && tommorow <= finish)
+              if (the_day <= start   && start    < tomorrow ) ||
+                 (the_day <  finish  && finish   < tomorrow ) ||
+                 (start   <  the_day && tomorrow <= finish)
                 events[date] << {
                   start:   start,
                   finish:  finish,
@@ -115,8 +115,6 @@ module ConkyPIM
         end
 
       end
-
-      puts(decorate_footer)
     end
 
   end
