@@ -8,8 +8,8 @@ require 'conky-pim/event'
 module ConkyPIM
 
   CONFIG_FILE_DEFAULT = '../../../config/conky-pim.yaml'
-  CONFIG_FILE_USER    = "#{ENV['HOME']}/.config/conky-pim.yaml"
-  CONFIG_FILE_COMPAT  = "#{ENV['HOME']}/.config/conky-pim.yml"
+  CONFIG_FILE_USER    = "#{ENV['HOME']}/.config/conky/pim.yaml"
+  CONFIG_FILE_COMPAT  = "#{ENV['HOME']}/.config/conky/pim.yml"
 
   class Main
 
