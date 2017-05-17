@@ -67,7 +67,7 @@ module ConkyPIM
       last_weekend = (@first_weekday - 1) % 7
 
       # Header
-      month = "#{@today.year} #{@today.strftime('%B')}"
+      month = "#{@today.year} #{@today.strftime('%B').upcase}"
       cal = decorate_header(month)
       cal += "\n"
       cal += ' ' * @margin
