@@ -37,7 +37,7 @@ Options:
 Add the following line to `${HOME}/.conkyrc`:
 
 ```
-${execpi 600 ${HOME}/bin/conky-pim conky}
+${execpi 600 ${HOME}/bin/conky-pim all}
 ```
 
 ## Configuration
