@@ -42,7 +42,7 @@ ${execpi 600 ${HOME}/bin/conky-pim conky}
 
 ## Configuration
 
-You can edit `${HOME}/.config/conky-pim.yaml` as a user config file.
+You can edit `${HOME}/.config/conky/pim.yaml` as a user config file.
 
 Default config is below:
 
